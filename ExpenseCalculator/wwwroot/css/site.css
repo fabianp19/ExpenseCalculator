@@ -14,5 +14,28 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #12161d;
+    color: #fff;
+}
+
+.table {
+    color: #fff;
+}
+
+.input_place {
+    background-color: #12161d;
+    color: #fff;
+    border-color: cornflowerblue;
+}
+
+.input_place:focus {
+    background-color: #12161d;
+    color: #fff;
+    filter: drop-shadow(0 0 0.5rem crimson);
+}
+
+#floatingLabel:placeholder-shown
+{
+
 }

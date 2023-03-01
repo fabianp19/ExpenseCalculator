@@ -12,6 +12,6 @@ namespace ExpenseCalculator.Models
         public string? Title { get; set; }
 
         [Column(TypeName = "nvarchar(10)")]
-        public string Type { get; set; } = "Expense";
+        public string? Type { get; set; } = "Expense";
     }
 }
