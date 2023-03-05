@@ -26,16 +26,29 @@ body {
 .input_place {
     background-color: #12161d;
     color: #fff;
-    border-color: cornflowerblue;
 }
 
 .input_place:focus {
     background-color: #12161d;
     color: #fff;
+    box-shadow: none;
     filter: drop-shadow(0 0 0.5rem crimson);
 }
 
-#floatingLabel:placeholder-shown
-{
+input[type="radio"] {
+    display: none;
+}
 
+.btn-group {
+    width: 100%;
+}
+
+.btn-secondary {
+    color: #000;
+    background-color: #fff;
+}
+
+.container {
+    align-content: center;
+    position: center;
 }

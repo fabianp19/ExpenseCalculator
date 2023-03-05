@@ -15,13 +15,16 @@
             <input type="hidden" asp-for="CategoryId" />
             <div class="form-group mb-3">
                 <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control input_place" />
+                <input asp-for="Title" placeholder="Title" class="form-control input_place"/>
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group mb-3">
-                <label asp-for="Type" class="control-label"></label>
-                <input asp-for="Type" class="form-control input_place"/>
-                <span asp-validation-for="Type" class="text-danger"></span>
+                <div class="btn-group btn-group-horizontal">
+                    <input type="radio" class="btn-check" id="radioFirst" name="Type" value="Expense" checked="@(Model.Type == "Expense")"/>
+                    <label class="btn btn-secondary" for="radioFirst">Expense</label>
+                    <input type="radio" class="btn-check" id="radioSecond" name="Type" value="Income" checked="@(Model.Type == "Income")"/>
+                    <label class="btn btn-secondary" for="radioSecond">Income</label>
+                </div>
             </div>
             <div class="form-group mb-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
