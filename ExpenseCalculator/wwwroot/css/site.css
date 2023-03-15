@@ -48,7 +48,31 @@ input[type="radio"] {
     background-color: #fff;
 }
 
-.container {
-    align-content: center;
-    position: center;
+.badge {
+    vertical-align: middle;
+    margin-top: 0.5em;
+}
+
+td {
+    border: none;
+}
+
+.page-link {
+    background-color: #12161d;
+    color: #fff;
+    border: none;
+}
+
+.page-link:hover {
+    background-color: #808080;
+    color: #fff;
+    opacity: 0.5;
+}
+
+.grid-header-title a {
+    color: #fff;
+}
+
+.page-item.active .page-link {
+    background-color: #808080;
 }
