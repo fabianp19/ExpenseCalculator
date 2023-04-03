@@ -116,7 +116,9 @@ namespace ExpenseCalculator.Controllers
         }
 
         // GET: Category/Delete/5
+#pragma warning disable S4144 // Methods should not have identical implementations
         public async Task<IActionResult> Delete(int? id)
+#pragma warning restore S4144 // Methods should not have identical implementations
         {
             if (id == null || _context.Categories == null)
             {
@@ -143,6 +145,7 @@ namespace ExpenseCalculator.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Categories'  is null.");
             }
             var category = await _context.Categories.FindAsync(id);
+            
             if (category != null)
             {
                 _context.Categories.Remove(category);
