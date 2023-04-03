@@ -76,3 +76,7 @@ td {
 .page-item.active .page-link {
     background-color: #808080;
 }
+
+.grid-goto-page {
+    display: none;
+}
