@@ -47,7 +47,7 @@ namespace ExpenseCalculator.Controllers
         // GET: Transaction/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Title");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace ExpenseCalculator.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", transaction.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Title", transaction.CategoryId);
             return View(transaction);
         }
 
@@ -81,7 +81,7 @@ namespace ExpenseCalculator.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", transaction.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Title", transaction.CategoryId);
             return View(transaction);
         }
 
@@ -117,12 +117,14 @@ namespace ExpenseCalculator.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", transaction.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "Title", transaction.CategoryId);
             return View(transaction);
         }
 
         // GET: Transaction/Delete/5
+#pragma warning disable S4144 // Methods should not have identical implementations
         public async Task<IActionResult> Delete(int? id)
+#pragma warning restore S4144 // Methods should not have identical implementations
         {
             if (id == null || _context.Transactions == null)
             {
@@ -163,5 +165,6 @@ namespace ExpenseCalculator.Controllers
         {
           return (_context.Transactions?.Any(e => e.TransactionId == id)).GetValueOrDefault();
         }
+
     }
 }
