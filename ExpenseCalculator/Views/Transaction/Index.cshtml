@@ -1,53 +1,24 @@
 ﻿@model IEnumerable<ExpenseCalculator.Models.Transaction>
+@using GridMvc
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Transactions</h1>
 
 <p>
     <a asp-action="Create" class="text-white btn btn-success">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TransactionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-6">
+        @await Html.Grid(Model).Columns(columns =>
+    {
+        columns.Add(x => x.Category!.Title).Titled("Category").SetWidth("20%");
+        columns.Add(x => x.Date).Format("{0:dd/MM/yyyy}").SetWidth("15%");
+        columns.Add(x => x.Amount).RenderValueAs(x => ((x.Category == null || x.Category.Type == "Expense") ? "- " : "+ ") + x.Amount.ToString("N0")).Css("amount-align").SetWidth("20%");
+        columns.Add(x => x.Note).SetWidth("30%");
+        columns.Add(x => x.TransactionId).Encoded(false).Sanitized(false).RenderValueAs(x => $"<a class='fa-solid fa-pen-to-square' style='color: #d5d8dd;' href='/Transaction/Edit/{x.TransactionId}'></a> <a class='fa-solid fa-trash' style='color: #d5d8dd;' href='/Transaction/Delete/{x.TransactionId}'></a>").Titled("Actions").SetWidth("10%");
+    }).Sortable().WithPaging(5, 2).RenderAsync()
+    </div>
+</div>

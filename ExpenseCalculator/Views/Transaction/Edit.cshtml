@@ -13,27 +13,28 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="TransactionId" />
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" />
-                <span asp-validation-for="Amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Note" class="control-label"></label>
-                <input asp-for="Note" class="form-control" />
-                <span asp-validation-for="Note" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
+                <input asp-for="Date" type="date" class="form-control input_place" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <select asp-for="CategoryId" class ="form-control form-select input_place" asp-items="ViewBag.CategoryId">
+                    <option value="" disabled>Choose category</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control input_place" placeholder="0" min="0"/>
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Note" class="control-label"></label>
+                <textarea asp-for="Note" class="form-control input_place"></textarea>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
