@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.widgets.js"></script>   
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+</head>
+
+<div class="dahboard-container">
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-column icon-bg-color justify-content-center p-5" style="border-radius: 20px 0 0 20px">
+                <i class="fa-solid fa-coins"></i>
+            </div>
+            <div class="widget d-flex flex-column balance-bg-color px-3 py-3" style="border-radius: 0 20px 20px 0">
+                <span class="lead" style="color:#16FF00">Total Income</span>
+                <h1 class="display-6 fw-bold" style="color:#16FF00">@ViewBag.TotalIncome</h1>
+            </div>
+        </div>    
+    </div>
+
+    <div class="col-md-4">
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-column icon-bg-color justify-content-center p-5" style="border-radius: 20px 0 0 20px">
+                <i class="fa-solid fa-coins"></i>
+            </div>
+            <div class="widget d-flex flex-column balance-bg-color px-3 py-3" style="border-radius: 0 20px 20px 0">
+                <span class="lead" style="color:red">Total Expense</span>
+                <h1 class="display-6 fw-bold" style="color:red">@ViewBag.TotalExpense</h1>
+            </div>
+        </div> 
+    </div>
+    
+    <div class="col-md-4">
+        <div class="d-flex flex-row">
+            <div class="d-flex flex-column icon-bg-color justify-content-center p-5" style="border-radius: 20px 0 0 20px">
+                <i class="fa-solid fa-coins"></i>
+            </div>
+            <div class="widget d-flex flex-column balance-bg-color px-3 py-3" style="border-radius: 0 20px 20px 0">
+                <span class="lead">Balance</span>
+                <h1 class="display-6 fw-bold">@ViewBag.Balance</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <div class="spline-chart">
+        <div id="chartContainer">@Html.Raw(ViewData["IncomeSplineChart"])</div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <div class="spline-chart">
+        <div id="chartContainer">@Html.Raw(ViewData["ExpenseSplineChart"])</div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <div class="doughnut-chart">
+        <div id="chartContainer">@Html.Raw(ViewData["DoughnutChart"])</div>
+    </div>
+</div>
+</div>
