@@ -17,6 +17,8 @@ body {
     margin-bottom: 60px;
     background-color: #12161d;
     color: #fff;
+    overflow-x: hidden;
+    margin-left: 200px;
 }
 
 input {
@@ -35,12 +37,28 @@ td {
     border: none;
 }
 
-.table {
-    color: #fff;
+rect {
+    fill: #222b33;
+}
+
+text {
+    fill: #fff;
 }
 
 textarea {
     color-scheme: dark;
+}
+
+#sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #12161d;
+    border-right: solid 1px rgba(255, 255, 255, 0.5);
+    padding: 10px 10px;
 }
 
 .amount-align {
@@ -52,6 +70,10 @@ textarea {
     margin-top: 0.5em;
 }
 
+.balance-bg-color {
+    background-color: #222b33;
+}
+
 .btn-group {
     width: 100%;
 }
@@ -61,12 +83,20 @@ textarea {
     background-color: #fff;
 }
 
+.dahboard-container {
+    float: left;
+}
+
 .grid-goto-page {
     display: none;
 }
 
 .grid-header-title a {
     color: #fff;
+}
+
+.icon-bg-color, .widget-color {
+    background-color: #1a222b;
 }
 
 .input_place {
@@ -79,6 +109,10 @@ textarea {
     color: #fff;
     box-shadow: none;
     filter: drop-shadow(0 0 0.5rem crimson);
+}
+
+.main-content {
+    margin-left: 30px;
 }
 
 .page-item.active .page-link {
@@ -95,4 +129,17 @@ textarea {
     background-color: #808080;
     color: #fff;
     opacity: 0.5;
+}
+
+.raphael-group-5-background {
+    background-color: #12161d;
+    fill: #12161d;
+}
+
+.table {
+    color: #fff;
+}
+
+.widget {
+    width: 100%;
 }
