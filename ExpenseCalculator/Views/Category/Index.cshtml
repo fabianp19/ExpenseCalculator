@@ -10,14 +10,14 @@
 <p>
     <a asp-action="Create" class="text-white btn btn-success">Create New</a>
 </p>
+
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         @await Html.Grid(Model).Columns(columns =>
-    {
-        columns.Add(x => x.Title).SetWidth("60%");
-        columns.Add(x => x.Type).SetCellCssClassesContraint(
-            x => x.Type == "Income" ? "badge bg-success" : "badge bg-danger").SetWidth("20%");
-        columns.Add(x => x.CategoryId).Encoded(false).Sanitized(false).RenderValueAs(x => $"<a class='fa-solid fa-pen-to-square' style='color: #d5d8dd;' href='/Category/Edit/{x.CategoryId}'></a> <a class='fa-solid fa-trash' style='color: #d5d8dd;' href='/Category/Delete/{x.CategoryId}'></a>").Titled("Actions").SetWidth("20%");
-    }).Sortable().WithPaging(5, 2).RenderAsync()
+        {
+            columns.Add(x => x.Title).SetWidth("60%");
+            columns.Add(x => x.Type).SetCellCssClassesContraint(x => x.Type == "Income" ? "badge bg-success" : "badge bg-danger").SetWidth("20%");
+            columns.Add(x => x.CategoryId).Encoded(false).Sanitized(false).RenderValueAs(x => $"<a class='fa-solid fa-pen-to-square' style='color: #d5d8dd;' href='/Category/Edit/{x.CategoryId}'></a> <a class='fa-solid fa-trash' style='color: #d5d8dd;' href='/Category/Delete/{x.CategoryId}'></a>").Titled("Actions").SetWidth("20%");
+        }).Sortable().WithPaging(5, 2).RenderAsync()
     </div>
 </div>
